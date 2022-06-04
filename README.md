@@ -1,5 +1,7 @@
 Deployed Smart Contract (Mumbai): https://mumbai.polygonscan.com/address/0x6d7Ea71eECc524E5D03cE7d6B184113544dED1AC 
 
+Deployed Smart Contract (Mainnet): https://polygonscan.com/address/0x6d7Ea71eECc524E5D03cE7d6B184113544dED1AC
+
 # Advanced Sample Hardhat Project
 
 This project demonstrates an advanced Hardhat use case, integrating other tools commonly used alongside Hardhat in the ecosystem.
