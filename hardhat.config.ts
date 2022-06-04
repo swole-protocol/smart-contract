@@ -23,7 +23,8 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   }
 });
 
-const METAMASK_PRIVATE_KEY = process.env.METAMASK_PRIVATE_KEY as string;
+const POLYGON_METAMASK_PRIVATE_KEY = process.env
+  .POLYGON_METAMASK_PRIVATE_KEY as string;
 const MUMBAI_RPC_URL = process.env.MUMBAI_RPC_URL as string;
 const POLYSCAN_KEY = process.env.POLYSCAN_KEY as string;
 
@@ -37,13 +38,11 @@ const config: HardhatUserConfig = {
     hardhat: {},
     mumbai: {
       url: MUMBAI_RPC_URL,
-      accounts: [METAMASK_PRIVATE_KEY],
-      gas: 6000000,
-      gasPrice: 3000000000,
+      accounts: [POLYGON_METAMASK_PRIVATE_KEY],
     },
     matic: {
-      url: "https://speedy-nodes-nyc.moralis.io/fe2c1d1a765cf3f554ee0f77/polygon/mainnet",
-      accounts: [METAMASK_PRIVATE_KEY],
+      url: "https://rpc.ankr.com/polygon",
+      accounts: [POLYGON_METAMASK_PRIVATE_KEY],
     },
   },
   gasReporter: {
