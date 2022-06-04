@@ -11,6 +11,8 @@ contract SwoleProtocol is ERC721URIStorage, IERC2981, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private tokenCounter;
 
+    event WorkoutMinted(uint tokenId, string tokenURI, uint256 royaltyPercentageForOwner);
+
     uint256 public _royaltyAmount;
 
     constructor() ERC721("SwoleProtocol", "SWOLE") {
@@ -33,6 +35,8 @@ contract SwoleProtocol is ERC721URIStorage, IERC2981, Ownable {
         _setTokenURI(newTokenId, _tokenURI);
 
         tokenCounter.increment();
+
+        emit WorkoutMinted(newTokenId, _tokenURI, _royaltyAmount);
     }
 
     function royaltyInfo(uint256 tokenId, uint256 salePrice)
@@ -42,7 +46,7 @@ contract SwoleProtocol is ERC721URIStorage, IERC2981, Ownable {
         returns (address _receiver, uint256 royaltyAmount)
     {
         require(_exists(tokenId), "Nonexistent token");
-
-        return (ownerOf(tokenId), (salePrice * _royaltyAmount) / 100);
+        uint256 royalty = ((salePrice * _royaltyAmount) / 100);
+        return (ownerOf(tokenId), royalty);
     }
 }
