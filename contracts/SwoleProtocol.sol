@@ -36,7 +36,7 @@ contract SwoleProtocol is ERC721URIStorage, IERC2981, Ownable {
 
         tokenCounter.increment();
 
-        emit  WorkoutMinted(newTokenId, _tokenURI, _royaltyAmount);
+        emit WorkoutMinted(newTokenId, _tokenURI, _royaltyAmount);
     }
 
     function royaltyInfo(uint256 tokenId, uint256 salePrice)
